@@ -6,4 +6,7 @@ const inputBtn=document.getElementById('input-btn')
 
 inputBtn.addEventListener('click',function(){
     console.log('Button clicked from addEventListener')
+    myLeads.push('www.awesomelead.com')
+    console.log(myLeads)
 })
+
