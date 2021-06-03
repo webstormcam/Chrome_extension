@@ -8,7 +8,7 @@ const deleteBtn=document.getElementById('delete-btn')
 
 if (leadsFromLocalStorage){
     myLeads=leadsFromLocalStorage
-    renderLeads()
+    render(myLeads)
 
 }
 
@@ -16,6 +16,7 @@ if (leadsFromLocalStorage){
     localStorage.clear()
     myLeads=[]
     ulEl.innerHTML=''
+    render(myLeads)
 })
 
 
@@ -26,21 +27,18 @@ inputBtn.addEventListener('click',function(){
     myLeads.push(inputEl.value)
     inputEl.value=''
     localStorage.setItem('myLeads',JSON.stringify(myLeads))
-  
-    renderLeads()
-
-   
+  render(myLeads)
 })
 
 
 
-function renderLeads(){
+function render(leads){
     let listItems=''
-    for(let count=0;count<myLeads.length;count++){
+    for(let count=0;count<leads.length;count++){
         listItems+=`
         <li>
-            <a target='_blank' href="${myLeads[count]}">
-            ${myLeads[count]}
+            <a target='_blank' href="${leads[count]}">
+            ${leads[count]}
                  </a>
             </li>
         `
